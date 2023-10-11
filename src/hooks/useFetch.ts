@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer } from 'react'
-import { Action } from '../types'
+import { Action, IBGE_Api } from '../types'
 
 const useFetch = (url: string) => {
   const initialState = {
@@ -51,7 +51,7 @@ const useFetch = (url: string) => {
   }, [handleFetch])
 
   return {
-    data: state.data,
+    data: state.data as IBGE_Api,
     isLoading: state.isLoading,
     error: state.error,
   }

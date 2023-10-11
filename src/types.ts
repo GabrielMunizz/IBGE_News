@@ -26,3 +26,7 @@ export type Action =
   | { type: 'loading' }
   | { type: 'error', payload: any }
   | {type: 'fetched', payload: any}
+
+export type NewsProps = {
+  news: IBGE_News,
+}
