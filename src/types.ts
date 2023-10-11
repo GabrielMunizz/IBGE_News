@@ -21,3 +21,8 @@ export type IBGE_News = {
   tipo: string,
   titulo: string,
 }
+
+export type Action = 
+  | { type: 'loading' }
+  | { type: 'error', payload: any }
+  | {type: 'fetched', payload: any}
