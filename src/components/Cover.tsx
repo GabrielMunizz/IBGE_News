@@ -4,7 +4,6 @@ const Cover = ({ news }: NewsProps) => {
   const { titulo, introducao, imagens } = news
   const convertedImage = JSON.parse(imagens).image_intro;
   const imageURL = `https://agenciadenoticias.ibge.gov.br/${convertedImage}`
-  
   return(
     <section>
       <div>
