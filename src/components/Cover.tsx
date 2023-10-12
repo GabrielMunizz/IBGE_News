@@ -2,7 +2,7 @@ import { NewsProps } from '../types';
 import calculateDays from '../utils/functions';
 
 const Cover = ({ news }: NewsProps) => {
-  const { titulo, introducao, imagens, data_publicacao } = news
+  const { titulo, introducao, imagens, data_publicacao, link } = news
   const convertedImage = JSON.parse(imagens).image_intro;
   const imageURL = `https://agenciadenoticias.ibge.gov.br/${convertedImage}`  
   return(
@@ -15,6 +15,7 @@ const Cover = ({ news }: NewsProps) => {
         <h1>{titulo}</h1>
         <p>{introducao}</p>
         <p>{calculateDays(data_publicacao)}</p>
+        <a href={ link }>Leia a notícia aqui</a>
       </div>
     </section>
   )
