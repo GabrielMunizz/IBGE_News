@@ -5,7 +5,7 @@ import NewsCard from './NewsCard';
 
 const Home = () => {
   const {data, isLoading, error} = useFetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100')
-  const items = data?.items;
+  const items = data?.items.slice(0, 21);
   const otherNews = items?.filter((_item, i) => i !== 0);  
   return (
     <main>
