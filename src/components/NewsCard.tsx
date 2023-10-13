@@ -7,17 +7,19 @@ import useFavorite from '../hooks/useFavorite';
 const NewsCard = ({ news }: NewsProps) => {  
   const { titulo, introducao, data_publicacao, link } = news
   const {isFavorite, handleFavorite} = useFavorite(news);
-  return(
+  return (
     <div>
       <h1>{titulo}</h1>
-      <p>{introducao}</p>      
+      <p>{introducao}</p>
       <p>{calculateDays(data_publicacao)}</p>
-      <a href={ link } target='_blank'>Leia a notícia aqui</a>
-      <button onClick={ handleFavorite }>
+      <a href={link} target="_blank">
+        Leia a notícia aqui
+      </a>
+      <button onClick={handleFavorite}>
         <img src={isFavorite ? fav : unFav} alt="favorite button" />
       </button>
     </div>
-  )
+  );
 }
 
 export default NewsCard;

@@ -22,7 +22,7 @@ export type IBGE_News = {
   titulo: string,
 }
 
-export type Action = 
+export type FetchAction = 
   | { type: 'loading' }
   | { type: 'error', payload: any }
   | {type: 'fetched', payload: any}
@@ -30,3 +30,9 @@ export type Action =
 export type NewsProps = {
   news: IBGE_News,
 }
+
+export type CategoriesAction = 
+  | { type: 'favorites', payload: IBGE_News[] }
+  | { type: 'recentNews', payload: IBGE_News[] }
+  | { type: 'typeNews', payload: IBGE_News[] }
+  | { type: 'typeRelease', payload: IBGE_News []}

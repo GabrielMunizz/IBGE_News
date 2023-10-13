@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer } from 'react'
-import { Action, IBGE_Api } from '../types'
+import { FetchAction, IBGE_Api } from '../types'
 
 const useFetch = (url: string) => {
   const initialState = {
@@ -8,7 +8,7 @@ const useFetch = (url: string) => {
     data: undefined,
   }
 
-  const reducer = (state= initialState, action: Action) => {
+  const reducer = (state= initialState, action: FetchAction) => {
     switch(action.type) {
       case 'loading':
         return {
