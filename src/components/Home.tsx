@@ -5,16 +5,13 @@ import NewsCard from './NewsCard';
 import useCategories from '../hooks/useCategories';
 
 const Home = () => {
-  const {
-    data,
-    isLoading,
-    error
-        } = useFetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
+  const URL = 'https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100'
+  const { data, isLoading, error } = useFetch(URL);
   const { dispatch, favorite, recentNews, typeNews, typeRelease } = useCategories();
   const items = data?.items.slice(0, 21);  
   const otherNews = items?.filter((_item, i) => i !== 0);  
-  const filterRelease = data?.items?.filter((news) => news.tipo === 'Release');
-  const filterNews = data?.items?.filter((news) => news.tipo === 'Notícia');
+  const filterRelease = otherNews?.filter((news) => news.tipo === 'Release');
+  const filterNews = otherNews?.filter((news) => news.tipo === 'Notícia');
   const filterFavorite = localStorage
     .getItem('favorite') ? JSON.parse(localStorage.getItem('favorite') as string) : [];  
   return (
@@ -35,7 +32,7 @@ const Home = () => {
           Release
         </button>
         <button 
-          onClick={ () => dispatch({ type: 'typeNews', payload: filterNews })}
+          onClick={ () => dispatch({ type: 'typeNews', payload: filterNews }) }
         >
           Notícia
         </button>
