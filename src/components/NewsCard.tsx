@@ -1,12 +1,13 @@
-import { NewsProps } from '../types';
+import { NewsProps } from '../utils/types';
 import calculateDays from '../utils/functions';
 import fav from '../images/checked_heart.png';
 import unFav from '../images/empty_heart.png';
 import useFavorite from '../hooks/useFavorite';
 
+
 const NewsCard = ({ news }: NewsProps) => {  
   const { titulo, introducao, data_publicacao, link } = news
-  const {isFavorite, handleFavorite} = useFavorite(news);
+  const { isFavorite, handleFavorite } = useFavorite(news);  
   return (
     <div>
       <h1>{titulo}</h1>
@@ -15,7 +16,7 @@ const NewsCard = ({ news }: NewsProps) => {
       <a href={link} target="_blank">
         Leia a notícia aqui
       </a>
-      <button onClick={handleFavorite}>
+      <button onClick={ handleFavorite }>
         <img src={isFavorite ? fav : unFav} alt="favorite button" />
       </button>
     </div>

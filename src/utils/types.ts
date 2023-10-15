@@ -28,11 +28,11 @@ export type FetchAction =
   | {type: 'fetched', payload: any}
 
 export type NewsProps = {
-  news: IBGE_News,
+  news: IBGE_News,  
 }
 
 export type CategoriesAction = 
-  | { type: 'favorites', payload: IBGE_News[] }
+  | { type: 'favorites', payload: IBGE_News[] }  
   | { type: 'recentNews', payload: IBGE_News[] }
   | { type: 'typeNews', payload: IBGE_News[] }
   | { type: 'typeRelease', payload: IBGE_News []}

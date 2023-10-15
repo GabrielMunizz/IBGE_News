@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer } from 'react'
-import { FetchAction, IBGE_Api } from '../types'
+import { FetchAction, IBGE_Api } from '../utils/types'
 
 const useFetch = (url: string) => {
   const initialState = {
