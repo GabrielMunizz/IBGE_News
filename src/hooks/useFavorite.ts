@@ -35,9 +35,9 @@ const useFavorite = (news: IBGE_News) => {
         loadLocal.push(news);
         dispatch({ type: 'favorites', payload: loadLocal })      
       }      
-      localStorage.setItem('favorite', JSON.stringify(loadLocal));     
-    } else {      
-      localStorage.setItem('favorite', JSON.stringify([news]));
+      localStorage.setItem('favorite', JSON.stringify(loadLocal));
+    } else {
+      localStorage.setItem('favorite', JSON.stringify([news]));      
     }
     setIsFavorite((prev) => !prev);
   }; 

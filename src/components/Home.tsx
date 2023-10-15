@@ -11,12 +11,14 @@ const Home = () => {
   const URL = 'https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100'
   const { data, isLoading, error } = useFetch(URL);
   const newsContext = useContext(NewsContext);
-  const { dispatch, favorite, typeNews, typeRelease } = newsContext;
+  const { dispatch, favorite } = newsContext;  
   const items = data?.items.slice(0, 21);  
   const otherNews = items?.filter((_item, i) => i !== 0);  
   const filterRelease = otherNews?.filter((news) => news.tipo === 'Release');
   const filterNews = otherNews?.filter((news) => news.tipo === 'Notícia'); 
-  
+  const getFavorites = localStorage
+    .getItem('favorite') ? JSON.parse(localStorage
+      .getItem('favorite') as string) : [];
   return (
     <main>
       <h1>Home</h1>
@@ -48,7 +50,8 @@ const Home = () => {
           Notícia
         </button>
         <button 
-          onClick={ () => {            
+          onClick={ () => {
+            dispatch({ type: 'favorites', payload: getFavorites })          
             setSelectedBtn('favorites');
           } }
         >
@@ -61,9 +64,9 @@ const Home = () => {
         .map((news) => <NewsCard key={ news.id } news={ news } />)}
       {selectedBtn === 'favorites' && favorite
         .length === 0 && <h2>Não possui favoritos</h2>}
-      {selectedBtn === 'typeNews' && typeNews
+      {selectedBtn === 'typeNews' && filterNews
         .map((news) => <NewsCard key={ news.id } news={ news }/>)}
-      {selectedBtn === 'typeRelease' && typeRelease
+      {selectedBtn === 'typeRelease' && filterRelease
         .map((news) => <NewsCard key={ news.id } news={ news }/>)}
     </main>
   );
