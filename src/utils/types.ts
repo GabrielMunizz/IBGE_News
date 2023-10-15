@@ -34,5 +34,3 @@ export type NewsProps = {
 export type CategoriesAction = 
   | { type: 'favorites', payload: IBGE_News[] }  
   | { type: 'recentNews', payload: IBGE_News[] }
-  | { type: 'typeNews', payload: IBGE_News[] }
-  | { type: 'typeRelease', payload: IBGE_News []}

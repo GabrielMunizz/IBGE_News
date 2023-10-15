@@ -1,4 +1,6 @@
-const calculateDays = (date: string) => {
+import { IBGE_News } from './types';
+
+export const calculateDays = (date: string) => {
   // date format: ex.: '23/10/2023'
   // formato da data: ex.: '23/10/2023'
 
@@ -29,4 +31,18 @@ const calculateDays = (date: string) => {
   return `${day - givenDay} dias atrás.`;
 };
 
-export default calculateDays;
+export const filterData = (items: IBGE_News[]) => {
+  const recentNews = items?.filter((_item, i) => i !== 0);  
+  const filterRelease = recentNews?.filter((news) => news.tipo === 'Release');
+  const filterNews = recentNews?.filter((news) => news.tipo === 'Notícia'); 
+  const getFavorites = localStorage
+    .getItem('favorite') ? JSON.parse(localStorage
+      .getItem('favorite') as string) : [];
+
+  return {
+    recentNews,
+    filterRelease,
+    filterNews,
+    filterFavorite: getFavorites,
+  }
+}

@@ -1,6 +1,6 @@
 import useFavorite from '../hooks/useFavorite';
 import { NewsProps } from '../utils/types';
-import calculateDays from '../utils/functions';
+import { calculateDays } from '../utils/functions';
 import fav from '../images/checked_heart.png';
 import unFav from '../images/empty_heart.png';
 

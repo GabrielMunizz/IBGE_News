@@ -3,11 +3,11 @@ import { GlobalStyle } from './styles/globalStyle';
 import NewsContext from './context/NewsContext';
 import useCategories from './hooks/useCategories';
 function App() { 
-  const { dispatch, favorite, typeNews, typeRelease } = useCategories();
+  const { dispatch, favorite } = useCategories();
 
   return (
     <>
-      <NewsContext.Provider value={ { dispatch, favorite, typeNews, typeRelease } }>
+      <NewsContext.Provider value={ { dispatch, favorite } }>
         <GlobalStyle />
         <Home />
       </NewsContext.Provider>

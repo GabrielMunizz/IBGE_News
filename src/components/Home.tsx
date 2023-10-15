@@ -5,6 +5,7 @@ import NewsCard from './NewsCard';
 import { useState } from 'react';
 import { useContext } from 'react';
 import NewsContext from '../context/NewsContext';
+import { filterData } from '../utils/functions';
 
 const Home = () => {
   const [selectedBtn, setSelectedBtn] = useState('recentNews');
@@ -12,13 +13,8 @@ const Home = () => {
   const { data, isLoading, error } = useFetch(URL);
   const newsContext = useContext(NewsContext);
   const { dispatch, favorite } = newsContext;  
-  const items = data?.items.slice(0, 21);  
-  const otherNews = items?.filter((_item, i) => i !== 0);  
-  const filterRelease = otherNews?.filter((news) => news.tipo === 'Release');
-  const filterNews = otherNews?.filter((news) => news.tipo === 'Notícia'); 
-  const getFavorites = localStorage
-    .getItem('favorite') ? JSON.parse(localStorage
-      .getItem('favorite') as string) : [];
+  const items = data?.items.slice(0, 21);
+  const { filterFavorite, filterNews, filterRelease, recentNews } = filterData(items);  
   return (
     <main>
       <h1>Home</h1>
@@ -34,16 +30,14 @@ const Home = () => {
           Mais recentes
         </button>
         <button 
-          onClick={ () => {
-            dispatch({ type: 'typeRelease', payload: filterRelease });
+          onClick={ () => {           
             setSelectedBtn('typeRelease');
           } }
         >
           Release
         </button>
         <button 
-          onClick={ () => {
-            dispatch({ type: 'typeNews', payload: filterNews });
+          onClick={ () => {            
             setSelectedBtn('typeNews');
           } }
         >
@@ -51,14 +45,14 @@ const Home = () => {
         </button>
         <button 
           onClick={ () => {
-            dispatch({ type: 'favorites', payload: getFavorites })          
+            dispatch({ type: 'favorites', payload: filterFavorite })          
             setSelectedBtn('favorites');
           } }
         >
           Favoritas
         </button>
       </div>      
-      {selectedBtn === 'recentNews' && otherNews
+      {selectedBtn === 'recentNews' && recentNews
         ?.map((news) => <NewsCard key={ news.id } news={ news }/>)}
       {selectedBtn === 'favorites' && favorite
         .map((news) => <NewsCard key={ news.id } news={ news } />)}
