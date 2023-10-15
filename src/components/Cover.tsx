@@ -3,6 +3,7 @@ import { NewsProps } from '../utils/types';
 import { calculateDays } from '../utils/functions';
 import fav from '../images/checked_heart.png';
 import unFav from '../images/empty_heart.png';
+import * as S from '../styles/cover';
 
 function Cover({ news }: NewsProps) {
   const { titulo, introducao, imagens, data_publicacao: dataPublicacao, link } = news;
@@ -10,21 +11,25 @@ function Cover({ news }: NewsProps) {
   const convertedImage = JSON.parse(imagens).image_intro;
   const imageURL = `https://agenciadenoticias.ibge.gov.br/${convertedImage}`;
   return (
-    <section>
-      <div>
+    <S.Cover>
+      <div id="imageContainer">
         <img src={ imageURL } alt="" />
       </div>
-      <div>
-        <h4>Notícia mais recente</h4>
-        <button onClick={ handleFavorite }>
-          <img src={ isFavorite ? fav : unFav } alt="favorite button" />
-        </button>
-        <h1>{titulo}</h1>
-        <p>{introducao}</p>
-        <p>{calculateDays(dataPublicacao)}</p>
-        <a href={ link }>Leia a notícia aqui</a>
+      <div id="newsContainer">
+        <div id="recent">
+          <h4>Notícia mais recente</h4>
+          <button onClick={ handleFavorite }>
+            <img src={ isFavorite ? fav : unFav } alt="favorite button" />
+          </button>
+        </div>
+        <div id="newsInfo">
+          <h1>{titulo}</h1>
+          <p>{introducao}</p>
+          <p>{calculateDays(dataPublicacao)}</p>
+          <a href={ link }>Leia a notícia aqui</a>
+        </div>
       </div>
-    </section>
+    </S.Cover>
   );
 }
 

@@ -3,22 +3,27 @@ import { calculateDays } from '../utils/functions';
 import fav from '../images/checked_heart.png';
 import unFav from '../images/empty_heart.png';
 import useLocalStorage from '../hooks/useLocalStorage';
+import * as S from '../styles/home';
 
 function NewsCard({ news }: NewsProps) {
   const { titulo, introducao, data_publicacao: dataPublicacao, link } = news;
   const { isFavorite, handleFavorite } = useLocalStorage(news);
   return (
-    <div>
+    <S.NewsCard>
       <h1>{titulo}</h1>
       <p>{introducao}</p>
-      <p>{ calculateDays(dataPublicacao) }</p>
-      <a href={ link } target="_blank" rel="noreferrer">
-        Leia a notícia aqui
-      </a>
-      <button onClick={ handleFavorite }>
-        <img src={ isFavorite ? fav : unFav } alt="favorite button" />
-      </button>
-    </div>
+      <S.Sub>
+        <p>{ calculateDays(dataPublicacao) }</p>
+        <a href={ link } target="_blank" rel="noreferrer">
+          Leia a notícia aqui
+        </a>
+      </S.Sub>
+      <S.BtnContainer>
+        <button onClick={ handleFavorite }>
+          <img src={ isFavorite ? fav : unFav } alt="favorite button" />
+        </button>
+      </S.BtnContainer>
+    </S.NewsCard>
   );
 }
 

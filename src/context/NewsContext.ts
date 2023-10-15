@@ -1,9 +1,11 @@
 import { createContext } from 'react';
-import { CategoriesAction, IBGE_News } from '../utils/types';
+import { CategoriesAction, IBGENews } from '../utils/types';
 
 export type NewsContextType = {
   dispatch: React.Dispatch<CategoriesAction>;
-  favorite: IBGE_News[];
+  favorite: IBGENews[];
+  isDark: boolean;
+  toggleTheme: () => void;
 };
 
 const NewsContext = createContext({} as NewsContextType);
