@@ -21,9 +21,9 @@ export const calculateDays = (date: string) => {
     const daysUntilFirst = 31 - givenDay;
     if (monthsWithThirtyDays.includes(givenMonth)) {
       return `${daysUntilFirst - 1 + day} dias atrás.`;
-    } else if (isLeapYear) {
+    } if (isLeapYear) {
       return `${29 - givenDay + day} dias atrás`;
-    } else if (isFebruary) {
+    } if (isFebruary) {
       return `${28 - givenDay + day} dias atrás`;
     }
     return `${daysUntilFirst + day} dias atrás.`;
@@ -32,9 +32,9 @@ export const calculateDays = (date: string) => {
 };
 
 export const filterData = (items: IBGE_News[]) => {
-  const recentNews = items?.filter((_item, i) => i !== 0);  
+  const recentNews = items?.filter((_item, i) => i !== 0);
   const filterRelease = recentNews?.filter((news) => news.tipo === 'Release');
-  const filterNews = recentNews?.filter((news) => news.tipo === 'Notícia'); 
+  const filterNews = recentNews?.filter((news) => news.tipo === 'Notícia');
   const getFavorites = localStorage
     .getItem('favorite') ? JSON.parse(localStorage
       .getItem('favorite') as string) : [];
@@ -44,5 +44,5 @@ export const filterData = (items: IBGE_News[]) => {
     filterRelease,
     filterNews,
     filterFavorite: getFavorites,
-  }
-}
+  };
+};
