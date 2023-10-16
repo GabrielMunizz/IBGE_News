@@ -1,7 +1,7 @@
 export const darkMode = {
   colors: {
     backgroundColor: '#272727',
-    filterBarBG: '#364547',
+    filterBarBG: '#101010',
     text: '#fff',
     title: '#fff',
     header: '#000',

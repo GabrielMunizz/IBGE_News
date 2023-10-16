@@ -25,8 +25,10 @@ function Cover({ news }: NewsProps) {
         <div id="newsInfo">
           <h1>{titulo}</h1>
           <p>{introducao}</p>
-          <p>{calculateDays(dataPublicacao)}</p>
-          <a href={ link }>Leia a notícia aqui</a>
+          <div id="btnContainer">
+            <p>{calculateDays(dataPublicacao)}</p>
+            <a href={ link }>Leia a notícia aqui</a>
+          </div>
         </div>
       </div>
     </S.Cover>

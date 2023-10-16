@@ -3,18 +3,18 @@ import styled from 'styled-components';
 export const Cover = styled.section`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 70%;
-  margin: 20px;
+  margin: 20px 20px 10rem 20px;
 
   & h1 {
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'IBM Plex Serif', serif;    
   }
 
   #imageContainer img {
-    width: 500px;
-    height: 300px;
+    width: 754px;
+    height: 485px;
     box-shadow: 0.5px 0.5px 3px 0.5px #000;
   }
 
@@ -23,6 +23,7 @@ export const Cover = styled.section`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
 
   #recent h4 {
@@ -37,11 +38,18 @@ export const Cover = styled.section`
   }
 
   #newsContainer {
-    width: 50%;
+    width: 37%;
+    height: 300px;
+    margin-left: 2.8rem; 
+    padding: 20px;
   }
 
   #newsInfo {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 300px;    
 
     & a {
     display: flex;
@@ -59,7 +67,15 @@ export const Cover = styled.section`
 
     &:hover {
       transform: scale(1.1);
-    }
+    }   
+  }
+
+  #btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
   }
 `;

@@ -8,7 +8,7 @@ export const Header = styled.header`
   background-color: ${(props) => props.theme.colors.header};
   color: #fff;
   width: 100%;
-
+  margin-bottom: 5rem;
   & img {
     width: 100px;
     height: 100px;
@@ -34,10 +34,15 @@ export const Main = styled.main`
   align-items: center;
 
   #filterBar {
-    width: 70%;
+    width: 58%;
+    height: 67px;
     border-radius: 5px;
     background-color: ${(props) => props.theme.colors.filterBarBG};
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
+  }
+
+  #filterBar button {
+    margin-right: 10px;
   }
 
   #filterContainer, #filterBar {
@@ -51,23 +56,23 @@ export const Main = styled.main`
     background-color: transparent;
     border: none;
     color: ${(props) => props.theme.colors.text};
-    font-size: 22px;    
-    margin: 0.5rem;
-    width: 200px;
+    font-size: 18px;
+    font-family: Poppins;       
+    font-weight: 600;      
+    margin: 3rem;    
 
     &:hover {
       cursor: pointer;
     }
 
-    &:focus,
-    &:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  } 
+    &:focus, &:hover {
+      border-bottom: 1px solid crimson;      
+    }
   }    
 `;
 
 export const Alingner = styled.section`
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;  
   width: 100%;
@@ -79,8 +84,9 @@ export const NewsContent = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 70%;
-  flex-wrap: wrap;  
+  width: 68%;
+  flex-wrap: wrap;
+  transform: translateX(5.5%);
   
   #noFav {
     display: flex;
@@ -97,12 +103,12 @@ export const NewsCard = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme.colors.filterBarBG};
-  margin: 2.4rem;
+  margin: 1.9rem;
   padding: 1.2rem;
   border-radius: 5px;
-  width: 500px;
-  height: 300px;
-  box-shadow: 1px 0.5px 2px 0.5px #333;
+  width: 438px;
+  height: 338px;
+  box-shadow: 0px 0px 1.5px 0px ${(props) => props.theme.colors.text};
 
   & h1 {
     font-family: 'IBM Plex Serif', serif;
@@ -154,4 +160,26 @@ export const BtnContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 1.5rem;
+`;
+
+export const MoreNLessBtn = styled.button`
+  background-color: transparent;
+  text-align: center;
+  width: 220px;
+  height: 60px;
+  font-size: 14px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+  color: crimson;;
+  border: 0.5px solid crimson;
+  line-height: 15px;
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 `;

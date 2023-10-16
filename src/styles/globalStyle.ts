@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
     transition: 0.3s ease;
     background-color: ${(props) => props.theme.colors.backgroundColor};
     color: ${(props) => props.theme.colors.text};
+    font-family: 'Nunito Sans', sans-serif;
   }
 `;
