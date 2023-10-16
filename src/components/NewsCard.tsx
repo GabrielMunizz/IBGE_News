@@ -3,7 +3,7 @@ import { calculateDays } from '../utils/functions';
 import fav from '../images/checked_heart.png';
 import unFav from '../images/empty_heart.png';
 import useLocalStorage from '../hooks/useLocalStorage';
-import * as S from '../styles/home';
+import * as S from '../styles/newsCard';
 
 function NewsCard({ news }: NewsProps) {
   const { titulo, introducao, data_publicacao: dataPublicacao, link } = news;

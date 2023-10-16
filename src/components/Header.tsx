@@ -1,7 +1,7 @@
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { useContext } from 'react';
 import logo from '../images/image 68.png';
-import * as S from '../styles/home';
+import * as S from '../styles/header';
 import NewsContext from '../context/NewsContext';
 
 function Header() {

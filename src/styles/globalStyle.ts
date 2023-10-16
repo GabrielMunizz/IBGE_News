@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-attachment: fixed;
     transition: 0.3s ease;
