@@ -5,11 +5,12 @@ import unFav from '../images/empty_heart.png';
 import useLocalStorage from '../hooks/useLocalStorage';
 import * as S from '../styles/newsCard';
 
-function NewsCard({ news }: NewsProps) {
+function NewsCard({ news, gridOrList }: NewsProps) {
   const { titulo, introducao, data_publicacao: dataPublicacao, link } = news;
   const { isFavorite, handleFavorite } = useLocalStorage(news);
+  console.log(gridOrList);
   return (
-    <S.NewsCard>
+    <S.NewsCard className={ gridOrList ? '' : 'list' }>
       <h1>{titulo}</h1>
       <p>{introducao}</p>
       <S.Sub>

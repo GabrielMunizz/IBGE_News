@@ -15,7 +15,13 @@ export const Main = styled.main`
   }
 
   #filterBar button {
-    margin-right: 10px; 
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   #filterContainer,
@@ -86,6 +92,16 @@ export const NewsContent = styled.div`
   width: 68%;
   flex-wrap: wrap;
   transform: translateX(5.7%);
+
+  .list {
+    width: 85%;
+    height: 230px;
+
+    & h1 {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+  }
 
   @media (max-width: 1930px) {
     width: 100%;

@@ -44,7 +44,7 @@ export const NewsCard = styled.div`
     &:hover {
       transform: scale(1.1);
     }
-  }
+  } 
 
   @media (max-width: 1930px) {
     width: 31.37rem;
@@ -109,7 +109,7 @@ export const NewsCard = styled.div`
     button img {
       width: 15px;
     }
-  }
+  }  
 `;
 
 export const Sub = styled.div`

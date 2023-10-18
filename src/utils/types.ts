@@ -29,6 +29,7 @@ export type FetchAction =
 
 export type NewsProps = {
   news: IBGENews;
+  gridOrList?: boolean;
 };
 
 export type CategoriesAction = {

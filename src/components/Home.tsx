@@ -7,11 +7,15 @@ import NewsContext from '../context/NewsContext';
 import { filterData } from '../utils/functions';
 import Header from './Header';
 import * as S from '../styles/home';
+import listOrGrid from '../images/Group 273.svg';
+import useGridOrList from '../hooks/useGridOrList';
 
 function Home() {
+  const [selectedBtn, setSelectedBtn] = useState('recentNews');
+  const [moreOrLess, setMoreOrLess] = useState('more');
+  const { gridOrList, handleGridOrList } = useGridOrList();
   const newsContext = useContext(NewsContext);
   const { dispatch, favorite } = newsContext;
-  const [selectedBtn, setSelectedBtn] = useState('recentNews');
   const URL = 'https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100';
   const { data, isLoading, error } = useFetch(URL);
   const allTheNews = data?.items.slice(0, 22);
@@ -41,39 +45,46 @@ function Home() {
             Favoritas
           </button>
         </div>
-        <button>botão estranho</button>
+        <button onClick={ handleGridOrList }>
+          <img src={ listOrGrid } alt="list or grid filter" />
+        </button>
       </section>
       <S.Alingner>
         <S.NewsContent>
           {selectedBtn === 'recentNews'
-            && recentNews?.map((news) => <NewsCard key={ news.id } news={ news } />)}
+            && recentNews?.map((news) => (
+              <NewsCard key={ news.id } news={ news } gridOrList={ gridOrList } />
+            ))}
           {selectedBtn === 'favorites'
-            && favorite.map((news) => <NewsCard key={ news.id } news={ news } />)}
+            && favorite.map((news) => (
+              <NewsCard key={ news.id } news={ news } gridOrList={ gridOrList } />
+            ))}
           {selectedBtn === 'favorites' && favorite.length === 0 && (
             <div id="noFav">
               <h2>Não possui favoritos</h2>
             </div>
           )}
           {selectedBtn === 'typeNews'
-            && filterNews.map((news) => <NewsCard key={ news.id } news={ news } />)}
+            && filterNews.map((news) => (
+              <NewsCard key={ news.id } news={ news } gridOrList={ gridOrList } />
+            ))}
           {selectedBtn === 'typeRelease'
-            && filterRelease.map((news) => <NewsCard key={ news.id } news={ news } />)}
-          {selectedBtn === 'allTheNews' && (
-            allTheNews.map((news) => <NewsCard key={ news.id } news={ news } />)
-          )}
+            && filterRelease.map((news) => (
+              <NewsCard key={ news.id } news={ news } gridOrList={ gridOrList } />
+            ))}
+          {selectedBtn === 'allTheNews'
+            && allTheNews.map((news) => (
+              <NewsCard key={ news.id } news={ news } gridOrList={ gridOrList } />
+            ))}
         </S.NewsContent>
       </S.Alingner>
-      {selectedBtn !== 'allTheNews' && (
-        <S.MoreNLessBtn
-          onClick={ () => setSelectedBtn('allTheNews') }
-        >
+      {selectedBtn !== 'allTheNews' && selectedBtn === 'recentNews' && (
+        <S.MoreNLessBtn onClick={ () => setSelectedBtn('allTheNews') }>
           Mais notícias
         </S.MoreNLessBtn>
       )}
       {selectedBtn === 'allTheNews' && (
-        <S.MoreNLessBtn
-          onClick={ () => setSelectedBtn('recentNews') }
-        >
+        <S.MoreNLessBtn onClick={ () => setSelectedBtn('recentNews') }>
           Menos notícias
         </S.MoreNLessBtn>
       )}
