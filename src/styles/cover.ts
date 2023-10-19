@@ -24,6 +24,11 @@ export const Cover = styled.section`
     margin-bottom: 0;
   }
 
+  @media (max-width: 395px) {
+      height: 320px;     
+    }
+ 
+
   & h1 {
     font-family: 'IBM Plex Serif', serif;  
   }
@@ -58,6 +63,15 @@ export const Cover = styled.section`
       width: 16.12rem;
       height: 8.31rem;
     }
+
+    @media (max-width: 415px) {
+      width: 10.12rem;
+      height: 6.31rem;
+    }    
+    
+    @media (max-width: 290px) {
+      display: none;
+    } 
   }
 
   #recent {
@@ -166,6 +180,9 @@ export const Cover = styled.section`
         font-size: 12px;
       }
     }
+    @media (max-width: 415px) {
+      height: 310px;      
+    }
   }
 
     & a {
@@ -190,6 +207,7 @@ export const Cover = styled.section`
         width: 130px;
         font-size: 12px;
       }
+      
     }
 
     #btnContainer {

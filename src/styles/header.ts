@@ -10,6 +10,7 @@ export const Header = styled.header`
   width: 100%;
   height: 13rem;
   margin-bottom: 5rem;
+  padding-right: 15px;
 
   & img {
     width: 13rem;
@@ -48,6 +49,13 @@ export const Header = styled.header`
 
     h1 {
       font-size: 22px;
+    }
+  }
+  @media (max-width: 300px) {
+    padding: none;
+
+    h1 {
+      margin-left: 30px;
     }
   }
 `;

@@ -44,7 +44,7 @@ function Home() {
             Favoritas
           </button>
         </div>
-        <button onClick={ handleGridOrList }>
+        <button id="listOrGrid" onClick={ handleGridOrList }>
           <img src={ listOrGrid } alt="list or grid filter" />
         </button>
       </section>

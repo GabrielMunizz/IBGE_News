@@ -109,7 +109,17 @@ export const NewsCard = styled.div`
     button img {
       width: 15px;
     }
-  }  
+  }
+
+  @media(max-width: 500px) {
+    width: 22rem;
+    height: 19.12rem;
+  }
+
+  @media(max-width: 300px) {
+    width: 22rem;
+    height: 25.12rem;
+  }
 `;
 
 export const Sub = styled.div`

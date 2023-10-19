@@ -69,10 +69,30 @@ export const Main = styled.main`
   }
 
   @media (max-width: 541px) {
+    #filterBar {
+      justify-content: center;
+    }
+
     #filterContainer button {
       margin: 0.8rem;
       font-size: 0.8rem;
     }
+    
+    #listOrGrid {
+      display: none;
+    }
+  }
+
+  @media (max-width: 415px) {
+      #filterBar {
+        margin-top: 4.5rem;
+      }     
+    }
+
+  @media (max-width: 415px) {
+    #filterContainer button {
+        font-size: 10px;
+      }    
   }
 `;
 
@@ -155,5 +175,11 @@ export const MoreNLessBtn = styled.button`
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+    width: 150px;
+    height: 40px;
   }
 `;
