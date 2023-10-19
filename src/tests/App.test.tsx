@@ -4,6 +4,7 @@ import { vi } from 'vitest';
 import { renderWithContext } from './utils/renderWith';
 import App from '../App';
 import mock from './utils/mock';
+import { calculateDays } from '../utils/functions';
 
 beforeEach(() => {
   const MOCK_RESPONSE = {
@@ -61,6 +62,20 @@ describe('Testes da aplicação:', () => {
     await userEvent.click(favoriteBtn);
   });
 
+  test('Testa para ver se ao clicar no botão de favoritar, a imagem do botão muda ao favoritar e desfavoritar', async () => {
+    renderWithContext(<App />);
+
+    const favoriteBtn = await screen.findByTestId('coverFavorite');
+
+    expect(favoriteBtn).toHaveAttribute('src', '/src/images/checked_heart.png');
+
+    await userEvent.click(favoriteBtn);
+
+    expect(favoriteBtn).toHaveAttribute('src', '/src/images/empty_heart.png');
+
+    await userEvent.click(favoriteBtn);
+  });
+
   test('Testa para ver se ao clicar no filtro favoritos, a noticia favoritada aparece', async () => {
     renderWithContext(<App />);
 
@@ -104,5 +119,19 @@ describe('Testes da aplicação:', () => {
 
     const listOrGridBtn = await screen.getByRole('img', { name: /list or grid filter/i });
     await userEvent.click(listOrGridBtn);
+  });
+
+  test('Testa a função calculateDays', async () => {
+    renderWithContext(<App />);
+
+    const result = calculateDays('20/08/2023');
+    const resultWithLastMonth = calculateDays('20/09/2023');
+    const resultWithFebruary = calculateDays('20/02/2023');
+    const resultWithLeapYear = calculateDays('20/02/2020');
+
+    expect(result).toBe('30 dias atrás.');
+    expect(resultWithLastMonth).toBe('29 dias atrás.');
+    expect(resultWithFebruary).toBe('27 dias atrás');
+    expect(resultWithLeapYear).toBe('28 dias atrás');
   });
 });

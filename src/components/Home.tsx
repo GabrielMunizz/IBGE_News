@@ -20,7 +20,6 @@ function Home() {
   const allTheNews = data?.items.slice(0, 22);
   const items = data?.items.slice(0, 10);
   const { filterFavorite, filterNews, filterRelease, recentNews } = filterData(items);
-  console.log(data);
   return (
     <S.Main>
       <Header />
