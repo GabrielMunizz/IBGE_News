@@ -19,7 +19,11 @@ function Cover({ news }: NewsProps) {
         <div id="recent">
           <h4>Notícia mais recente</h4>
           <button onClick={ handleFavorite }>
-            <img src={ isFavorite ? fav : unFav } alt="favorite button" />
+            <img
+              src={ isFavorite ? fav : unFav }
+              alt="favorite button"
+              data-testid="coverFavorite"
+            />
           </button>
         </div>
         <div id="newsInfo">

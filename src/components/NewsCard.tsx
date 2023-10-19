@@ -8,7 +8,7 @@ import * as S from '../styles/newsCard';
 function NewsCard({ news, gridOrList }: NewsProps) {
   const { titulo, introducao, data_publicacao: dataPublicacao, link } = news;
   const { isFavorite, handleFavorite } = useLocalStorage(news);
-  console.log(gridOrList);
+
   return (
     <S.NewsCard className={ gridOrList ? '' : 'list' }>
       <h1>{titulo}</h1>

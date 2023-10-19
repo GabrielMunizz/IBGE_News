@@ -11,7 +11,7 @@ function Header() {
     <S.Header>
       <img src={ logo } alt="Logo" />
       <h1>Trybe News</h1>
-      <button onClick={ toggleTheme }>
+      <button onClick={ toggleTheme } data-testid="darkmodeBtn">
         { isDark ? <MdLightMode alt="light mode" /> : <MdDarkMode alt="dark mode" /> }
       </button>
     </S.Header>
