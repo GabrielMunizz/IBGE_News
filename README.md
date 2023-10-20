@@ -1,27 +1,44 @@
-# React + TypeScript + Vite
+# Site de Notícias do IBGE em React
+Este é um projeto de site de notícias do IBGE desenvolvido em React, utilizando Typescript e Styled-Components. O site permite aos usuários escolher entre temas dark e light com um botão de dark mode e oferece funcionalidades para visualizar notícias, favoritar notícias e filtrar por tipos de notícias.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Funcionalidades
+Dark Mode: Os usuários podem alternar entre os temas dark e light utilizando o botão de dark mode.
 
-Currently, two official plugins are available:
+Notícia em Destaque: A aplicação exibe a notícia mais recente como capa da página principal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Favoritos: Os usuários têm a opção de favoritar notícias, que são armazenadas no localStorage. Isso permite que os usuários fechem a página e, ao retornar, acessem suas notícias favoritas.
 
-## Expanding the ESLint configuration
+Filtros de Notícias: A barra de filtros permite aos usuários escolher entre diferentes tipos de notícias, incluindo 'Mais Recentes', 'Notícias', 'Release' e 'Favoritos'.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Visualização em Tabela ou Lista: Os usuários podem alternar entre a exibição de notícias em formato de tabela ou lista.
 
-- Configure the top-level `parserOptions` property like this:
+Leitura Completa: Cada card de notícia exibe um preview, e os usuários podem clicar no botão "Leia a Notícia Aqui" para serem redirecionados ao site do IBGE para ler a notícia completa.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Tecnologias Utilizadas
+React
+Typescript
+Styled-Components
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Instalação
+1 - Clone o repositório: 
+- git clone https://github.com/seu-usuario/seu-projeto.git
+2 - Navegue até o diretório do projeto:
+- cd seu-projeto
+3 - Instale as dependências: 
+- npm install
+
+### Uso
+1 - Inicie a aplicação:
+- npm run dev
+2 - Abra o navegador 
+- acesse http://localhost:3000 para usar o site de notícias do IBGE. 
+
+### Contribuição
+Sinta-se à vontade para contribuir para este projeto. Se desejar adicionar novos recursos, corrigir bugs ou melhorar a documentação, siga estas etapas:
+
+1 - Faça um fork do repositório.
+
+2 - Crie uma branch para sua contribuição:
+- git checkout -b minha-contribuicao
+
+

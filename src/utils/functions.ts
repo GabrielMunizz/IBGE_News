@@ -1,4 +1,6 @@
-const calculateDays = (date: string) => {
+import { IBGENews } from './types';
+
+export const calculateDays = (date: string) => {
   // date format: ex.: '23/10/2023'
   // formato da data: ex.: '23/10/2023'
 
@@ -19,9 +21,9 @@ const calculateDays = (date: string) => {
     const daysUntilFirst = 31 - givenDay;
     if (monthsWithThirtyDays.includes(givenMonth)) {
       return `${daysUntilFirst - 1 + day} dias atrás.`;
-    } else if (isLeapYear) {
+    } if (isLeapYear) {
       return `${29 - givenDay + day} dias atrás`;
-    } else if (isFebruary) {
+    } if (isFebruary) {
       return `${28 - givenDay + day} dias atrás`;
     }
     return `${daysUntilFirst + day} dias atrás.`;
@@ -29,4 +31,18 @@ const calculateDays = (date: string) => {
   return `${day - givenDay} dias atrás.`;
 };
 
-export default calculateDays;
+export const filterData = (items: IBGENews[]) => {
+  const recentNews = items?.filter((_item, i) => i !== 0);
+  const filterRelease = recentNews?.filter((news) => news.tipo === 'Release');
+  const filterNews = recentNews?.filter((news) => news.tipo === 'Notícia');
+  const getFavorites = localStorage
+    .getItem('favorite') ? JSON.parse(localStorage
+      .getItem('favorite') as string) : [];
+
+  return {
+    recentNews,
+    filterRelease,
+    filterNews,
+    filterFavorite: getFavorites,
+  };
+};
