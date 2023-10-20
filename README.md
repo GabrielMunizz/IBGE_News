@@ -21,9 +21,9 @@ Styled-Components
 
 ### Instalação
 1 - Clone o repositório: 
-- git clone https://github.com/seu-usuario/seu-projeto.git
+- git clone https://github.com/GabrielMunizz/IBGE_News
 2 - Navegue até o diretório do projeto:
-- cd seu-projeto
+- cd IBGE_News
 3 - Instale as dependências: 
 - npm install
 
